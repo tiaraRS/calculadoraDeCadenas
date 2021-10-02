@@ -29,6 +29,7 @@ describe("calcularSumaCadenas", () => {
     expect(calcularSumaCadenas("*1,2,4,,8")).toEqual(0);
   });
   it("deberia sumar todos los numeros separados por ,", () => {
-    expect(calcularSumaCadenas("1/2,4,,8")).toEqual(1);
+    expect(calcularSumaCadenas("1*2,4,,8")).toEqual(1);
   });
+
 });
