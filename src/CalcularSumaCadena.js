@@ -31,7 +31,7 @@ function obtenerSeparadores(cadena){
     separador = cadena.split("\n")[0];
     separador = separador.replace("//[","");
     separador = separador.replace("]",""); 
-    separadores = separadores += `|${separador}`;
+    separadores = separadores += `|[${separador}]+`;
   }  
   return separadores;
 }
@@ -48,11 +48,13 @@ function calcularSumaCadenas(cadena) {
   let suma = 0;
   let i =0;
   let numeros = obtenerListaNumeros(cadena);
+  console.log(numeros)
   while(i<numeros.length){
     let posNoDigito = posicionCaracterDistintoDeDigito(numeros[i]);
+    console.log(numeros[i],posNoDigito)
     if( posNoDigito == 0) return suma;
     let subListaValida = obtenerListaValidaNumeros(numeros[i], posNoDigito);
-    if (posNoDigito > 0 ) return sumarLista(subListaValida);
+    if (posNoDigito > 0 ) return suma + sumarLista(subListaValida);
 
     let num = parseInt(numeros[i]);
     if(Number.isNaN(num)) return suma;
