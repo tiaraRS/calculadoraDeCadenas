@@ -5,6 +5,7 @@ function obtenerListaValidaNumeros(cadena, posFin){
 }
 
 function sumarLista(listaNumeros){
+  listaNumeros = listaNumeros.filter(num=>num <= 1000)
   return listaNumeros.reduce((a, b) =>parseInt(a) + parseInt(b), 0);
 }
 
@@ -55,7 +56,7 @@ function calcularSumaCadenas(cadena) {
 
     let num = parseInt(numeros[i]);
     if(Number.isNaN(num)) return suma;
-    suma += num;       
+    if(num <= 1000) suma += num;       
     i++;   
   }
   return suma;

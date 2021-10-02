@@ -48,5 +48,11 @@ describe("calcularSumaCadenas", () => {
     expect(calcularSumaCadenas("//[;]\n1;2;4;,8")).toEqual(7);
     expect(calcularSumaCadenas("//[;]\n*1;2*4;,8")).toEqual(0);
   });
-
+  it("deberia sumar todos los numeros <= 1000", () => {
+    expect(calcularSumaCadenas("//[;]\n1;1001;2;4-8")).toEqual(15);
+    expect(calcularSumaCadenas("//[;]\n1;2;40000;4;,8")).toEqual(7);
+  });
+  it("deberia sumar todos los numeros <= 1000", () => {
+    expect(calcularSumaCadenas("//[;]\n10000/1;2;40000;4;,8")).toEqual(0);
+  });
 });

@@ -4,8 +4,8 @@ FUNCIONALIDADES CALCULADORA DE CADENAS
 3. Calcular suma de números de una cadena, separados por - --ok
 4. Calcular suma de números de una cadena, separados por , o - --ok
 5. Calcular suma de números de una cadena, separados por delimitador de un caracter dado --ok
-6. Calcular suma de números de una cadena, sin tomar en cuenta números mayores a 1000
-7. Calcular suma de números de una cadena, separados por delimitador de mas de un caracter dado
+6. Calcular suma de números de una cadena, sin tomar en cuenta números mayores a 1000 --ok
+7. Calcular suma de números de una cadena, separados por delimitador de mas de un caracter dado --ok
 8. Calcular suma de números de una cadena, separados por delimitador(es) dado(s)
 
 
