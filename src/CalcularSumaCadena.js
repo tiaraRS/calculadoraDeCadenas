@@ -1,7 +1,7 @@
 function calcularSumaCadenas(cadena) {
   let suma = 0;
   let i =0;
-  let numeros = cadena.split(",");
+  let numeros = cadena.split(/,|-/);
   while(i<numeros.length){
     let posNoDigito=numeros[i].search(/\D/);
     if( posNoDigito == 0) return suma;
