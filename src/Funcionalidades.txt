@@ -1,0 +1,105 @@
+FUNCIONALIDADES CALCULADORA DE CADENAS
+1. Calcular suma de 2 números de una cadena, separados por ,
+2. Calcular suma de números de una cadena, separados por ,
+3. Calcular suma de números de una cadena, separados por -
+4. Calcular suma de números de una cadena, separados por , o -
+5. Calcular suma de números de una cadena, separados por delimitador de un caracter dado
+6. Calcular suma de números de una cadena, sin tomar en cuenta números mayores a 1000
+7. Calcular suma de números de una cadena, separados por delimitador de mas de un caracter dado
+8. Calcular suma de números de una cadena, separados por delimitador(es) dado(s)
+
+
+HISTORIAS DE USUARIO
+1.  
+    Como usuario genérico de la calculadora de cadenas
+    Quiero ver la suma de 2 números separados por ,
+    Para poder sumar 2 números facilmente
+
+    Criterios de confirmación:
+        -Debería devolver 3 con la cadena: "1,2"
+        -Debería pasar los tests realizados para la prueba con 100% de cobertura
+        -Debería devolver 1 con la cadena: "1,,2"
+        -Debería devolver 1 con la cadena: "1*2"
+        -Debería devolver 0 con la cadena: "**5"
+
+2.  
+    Como usuario genérico de la calculadora de cadenas
+    Quiero ver la suma de un conjunto de números separados por ,
+    Para poder sumar varios números facilmente
+
+    Criterios de confirmación:
+        -Debería devolver 15 con la cadena: "1,2,4,8"
+        -Debería pasar los tests realizados para la prueba con 100% de cobertura
+        -Debería devolver 7 con la cadena: "1,2,4,,8"
+        -Debería devolver 0 con la cadena: "*1,2,4,,8"
+        -Debería devolver 1 con la cadena: "1/2,4,,8"
+
+3.  
+    Como usuario genérico de la calculadora de cadenas
+    Quiero ver la suma de números de una cadena, separados por -
+    Para poder sumar varios números y fácilmente visualizar su separación con -
+
+    Criterios de confirmación:
+        -Debería devolver 15 con la cadena: "1-2-4-8"
+        -Debería pasar los tests realizados para la prueba con 100% de cobertura
+        -Debería devolver 7 con la cadena: "1-2-4-,8"
+        -Debería devolver 0 con la cadena: "*+1-2-4-8"
+        -Debería devolver 1 con la cadena: "1-,2-4-8"
+
+4.  
+    Como usuario genérico de la calculadora de cadenas
+    Quiero ver la suma de números de una cadena, separados por - o ,
+    Para poder sumar varios números y fácilmente visualizar su separación con - o con , que son separadores comunes
+
+    Criterios de confirmación:
+        -Debería devolver 15 con la cadena: "1-2,4,8"
+        -Debería pasar los tests realizados para la prueba con 100% de cobertura
+        -Debería devolver 7 con la cadena: "1,2-4-,8"
+        -Debería devolver 7 con la cadena: "1-2-4-,8"
+        -Debería devolver 0 con la cadena: "-1,2-4-,8"
+
+5.  
+    Como usuario genérico de la calculadora de cadenas
+    Quiero ver la suma de números de una cadena, separados por un caracter que yo elija
+    Para poder tener la decisión sobre el separador que quiera
+
+    Criterios de confirmación:
+        -Debería devolver 15 con la cadena: "//[;]\n1;2;4;8"
+        -Debería pasar los tests realizados para la prueba con 100% de cobertura
+        -Debería devolver 7 con la cadena: "//[;]\n1;2;4;,8"
+        -Debería devolver 1 con la cadena: "//[;]\n1;2*4;,8"
+        -Debería devolver 0 con la cadena: "//[;]\n*1;2*4;,8"
+
+
+6.  
+    Como usuario genérico de la calculadora de cadenas
+    Quiero ver la suma de números de una cadena, sin tomar en cuenta números mayores a 1000
+    Para poder ignorar números muy altos en la suma
+
+    Criterios de confirmación:
+        -Debería devolver 15 con la cadena: "//[;]\n1;1001;2;4;8"
+        -Debería pasar los tests realizados para la prueba con 100% de cobertura
+        -Debería devolver 7 con la cadena: "//[;]\n1;2;40000;4;,8"
+        -Debería devolver 0 con la cadena: "//[;]\n10000/1;2;40000;4;,8"
+
+7.  
+    Como usuario genérico de la calculadora de cadenas
+    Quiero ver la suma de números de una cadena, separados por delimitador de mas de un caracter dado
+    Para poder separar mis números fácilmente con más caracteres
+
+    Criterios de confirmación:
+        -Debería devolver 15 con la cadena: "//[;;;]\n1;;;1001;;;2;;;4;;;8"
+        -Debería pasar los tests realizados para la prueba con 100% de cobertura
+        -Debería devolver 7 con la cadena: "//[;;;]\n1;;;2;;;40000;;;4;,;;8"
+        -Debería devolver 7 con la cadena: "//[;;;]\n1;;;2;;;40000;;;4;8"
+
+8.  
+    Como usuario genérico de la calculadora de cadenas
+    Quiero ver la suma de números de una cadena, separados por uno o más delimitadores que yo elija
+    Para poder separar mis números por todos los caracteres que desee
+
+    Criterios de confirmación:
+        -Debería devolver 15 con la cadena: "//[;;;][*]\n1;;;1001*2;;;4-8"
+        -Debería pasar los tests realizados para la prueba con 100% de cobertura
+        -Debería devolver 7 con la cadena: "//[;;;][*]\n1;;;2*40000*4;,;;8"
+        -Debería devolver 0 con la cadena: "//[;;;][*]\n1*2;;;40000*4;,;;8"
