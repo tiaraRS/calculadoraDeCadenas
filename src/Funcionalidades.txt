@@ -1,6 +1,6 @@
 FUNCIONALIDADES CALCULADORA DE CADENAS
-1. Calcular suma de 2 números de una cadena, separados por ,
-2. Calcular suma de números de una cadena, separados por ,
+1. Calcular suma de 2 números de una cadena, separados por , -- ok
+2. Calcular suma de números de una cadena, separados por , -- ok
 3. Calcular suma de números de una cadena, separados por -
 4. Calcular suma de números de una cadena, separados por , o -
 5. Calcular suma de números de una cadena, separados por delimitador de un caracter dado

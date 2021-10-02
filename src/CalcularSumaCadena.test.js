@@ -19,4 +19,16 @@ describe("calcularSumaCadenas", () => {
   it("deberia sumar 2 numeros separados por ,", () => {
     expect(calcularSumaCadenas("+/5")).toEqual(0);
   });
+  it("deberia sumar todos los numeros separados por ,", () => {
+    expect(calcularSumaCadenas("1,2,4,8")).toEqual(15);
+  });
+  it("deberia sumar todos los numeros separados por ,", () => {
+    expect(calcularSumaCadenas("1,2,4,,8")).toEqual(7);
+  });
+  it("deberia sumar todos los numeros separados por ,", () => {
+    expect(calcularSumaCadenas("*1,2,4,,8")).toEqual(0);
+  });
+  it("deberia sumar todos los numeros separados por ,", () => {
+    expect(calcularSumaCadenas("1/2,4,,8")).toEqual(1);
+  });
 });
