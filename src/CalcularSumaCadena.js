@@ -12,20 +12,41 @@ function posicionCaracterDistintoDeDigito(cadena){
   return cadena.search(/\D/);
 }
 
-function calcularSumaCadenas(cadena) {
-  let suma = 0;
-  let i =0;
+function tieneDelimitador(cadena){
+  return cadena.search("\n")>0;
+}
+
+function obtenerCadenaValida(cadena){
+  if(tieneDelimitador(cadena)){
+    cadena = cadena.split("\n")[1];
+  }
+  return cadena;
+}
+
+function obtenerSeparadores(cadena){
   let separador = ",";
   let separadores = `,|-`;
-  if(cadena.search("\n")>0){
+  if(tieneDelimitador(cadena)){
     separador = cadena.split("\n")[0];
     separador = separador.replace("//[","");
     separador = separador.replace("]",""); 
-    cadena = cadena.split("\n")[1];
-  }
-  separadores = separadores += `|${separador}`;
+    separadores = separadores += `|${separador}`;
+  }  
+  return separadores;
+}
+
+function obtenerListaNumeros(cadena){
+  let separadores = obtenerSeparadores(cadena); 
   let expr =  new RegExp(separadores);
-  let numeros = cadena.split(expr);
+  cadena = cadena = obtenerCadenaValida(cadena);
+  let listaNumeros = cadena.split(expr);  
+  return listaNumeros;
+}
+
+function calcularSumaCadenas(cadena) {
+  let suma = 0;
+  let i =0;
+  let numeros = obtenerListaNumeros(cadena);
   while(i<numeros.length){
     let posNoDigito = posicionCaracterDistintoDeDigito(numeros[i]);
     if( posNoDigito == 0) return suma;
