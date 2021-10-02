@@ -37,4 +37,10 @@ describe("calcularSumaCadenas", () => {
   it("deberia sumar todos los numeros separados por -", () => {
     expect(calcularSumaCadenas("1-,2-4-8")).toEqual(1);
   });
+  it("deberia sumar todos los numeros separados por - y ,", () => {
+    expect(calcularSumaCadenas("1-2,4,8")).toEqual(15);
+  });
+  it("deberia sumar todos los numeros separados por - y ,", () => {
+    expect(calcularSumaCadenas("-1,2-4-,8")).toEqual(0);
+  });
 });
