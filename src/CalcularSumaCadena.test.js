@@ -62,4 +62,18 @@ describe("calcularSumaCadenas", () => {
   it("deberia sumar todos los numeros delimitados por el separador dado", () => {    
     expect(calcularSumaCadenas("//[***]\n10000***1***20**40000;4;,8")).toEqual(21);
   });
+  it("deberia sumar todos los numeros separados por limitadores elegidos", () => {
+    expect(calcularSumaCadenas("//[;;;][*]\n1;;;1001*2;;;4-8")).toEqual(15);
+  });
+  it("deberia sumar todos los numeros separados por limitadores elegidos", () => {
+    expect(calcularSumaCadenas("//[;][*][/]\n10;2*40000*4;8")).toEqual(24);
+  });
+  it("deberia sumar todos los numeros separados por limitadores elegidos", () => {    
+    expect(calcularSumaCadenas("//[+][*][)]\n1+2*40000,4)8")).toEqual(15);
+    expect(calcularSumaCadenas("//[-][;]\n10000-1;2-40000--4;,8")).toEqual(3);
+  });
+  it("deberia sumar todos los numeros separados por limitadores elegidos", () => {
+    expect(calcularSumaCadenas("//[;;;][*]\n1;;;1001*2;;;4-8")).toEqual(15);
+    expect(calcularSumaCadenas("//[***][==]\n1==1001==2***4+8")).toEqual(7);
+  });
 });
