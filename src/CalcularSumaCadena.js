@@ -15,7 +15,17 @@ function posicionCaracterDistintoDeDigito(cadena){
 function calcularSumaCadenas(cadena) {
   let suma = 0;
   let i =0;
-  let numeros = cadena.split(/,|-/);
+  let separador = ",";
+  let separadores = `,|-`;
+  if(cadena.search("\n")>0){
+    separador = cadena.split("\n")[0];
+    separador = separador.replace("//[","");
+    separador = separador.replace("]",""); 
+    cadena = cadena.split("\n")[1];
+  }
+  separadores = separadores += `|${separador}`;
+  let expr =  new RegExp(separadores);
+  let numeros = cadena.split(expr);
   while(i<numeros.length){
     let posNoDigito = posicionCaracterDistintoDeDigito(numeros[i]);
     if( posNoDigito == 0) return suma;
