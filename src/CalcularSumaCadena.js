@@ -24,19 +24,25 @@ function obtenerCadenaValida(cadena){
   return cadena;
 }
 
+function buscarDelimitadores(cadenaSeparadora){
+  let matches= cadenaSeparadora.matchAll("]","")
+  let limiteInicial = 0;
+  let separadores = `,|-`;
+  for (const match of matches) {
+    let sep = cadenaSeparadora.slice(limiteInicial,match.index);
+    limiteInicial = match.index+2;
+    separadores = separadores += `|[${sep}]+`;
+  }
+  return separadores;
+}
+
 function obtenerSeparadores(cadena){
   let separador = ",";
-  let separadores = `,|-`;
+  let separadores =`,|-`;
   if(tieneDelimitador(cadena)){
     separador = cadena.split("\n")[0];
     separador = separador.replace("//[","");
-    let matches= separador.matchAll("]","")
-    let aa = 0;
-    for (const match of matches) {
-      let sep = separador.slice(aa,match.index);
-      aa = match.index+2;
-      separadores = separadores += `|[${sep}]+`;
-    }
+    separadores = buscarDelimitadores(separador);
   }  
   return separadores;
 }
