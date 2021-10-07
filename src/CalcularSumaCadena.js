@@ -17,11 +17,9 @@ function calcularSumacadenaDeNumeross(cadenaDeNumeros) {
 }
 
 function obtenerListaNumeros(cadenaDeNumeros){
-  let separadores = obtenerSeparadores(cadenaDeNumeros); 
-  let expresionSeparadora =  new RegExp(separadores);
-  cadenaDeNumeros = obtenercadenaDeNumerosValida(cadenaDeNumeros);
-  let listaNumeros = cadenaDeNumeros.split(expresionSeparadora);  
-  return listaNumeros;
+  let expresionSeparadora =  new RegExp(obtenerSeparadores(cadenaDeNumeros));
+  let cadenaDeNumerosValida = obtenercadenaDeNumerosValida(cadenaDeNumeros); 
+  return cadenaDeNumerosValida.split(expresionSeparadora);
 }
 
 function obtenerSeparadores(cadenaDeNumeros){
