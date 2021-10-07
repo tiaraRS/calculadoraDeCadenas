@@ -132,7 +132,26 @@
 <a name='L73'></a><a href='#L73'>73</a>
 <a name='L74'></a><a href='#L74'>74</a>
 <a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">92x</span>
+<span class="cline-any cline-yes">92x</span>
+<span class="cline-any cline-yes">89x</span>
+<span class="cline-any cline-yes">89x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">84x</span>
+<span class="cline-any cline-yes">84x</span>
+<span class="cline-any cline-yes">76x</span>
+<span class="cline-any cline-yes">76x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">89x</span>
 <span class="cline-any cline-yes">89x</span>
 <span class="cline-any cline-yes">89x</span>
@@ -190,25 +209,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">29x</span>
-<span class="cline-any cline-yes">29x</span>
-<span class="cline-any cline-yes">29x</span>
-<span class="cline-any cline-yes">29x</span>
-<span class="cline-any cline-yes">92x</span>
-<span class="cline-any cline-yes">92x</span>
-<span class="cline-any cline-yes">89x</span>
-<span class="cline-any cline-yes">89x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">84x</span>
-<span class="cline-any cline-yes">84x</span>
-<span class="cline-any cline-yes">76x</span>
-<span class="cline-any cline-yes">76x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">function obtenerListaValidaNumeros(cadenaDeNumerosDeNumeros, posFin){
-  let subcadenaDeNumerosValida = cadenaDeNumerosDeNumeros.slice(0,posFin);
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">function calcularSumacadenaDeNumeross(cadenaDeNumeros) {
+  let suma = 0;
+  let contadorPosicion =0;
+  let listaDeNumeros = obtenerListaNumeros(cadenaDeNumeros);
+  while(contadorPosicion&lt;listaDeNumeros.length){
+    let posNoDigito = posicionCaracterDistintoDeDigito(listaDeNumeros[contadorPosicion]);
+    if( posNoDigito == 0) return suma;
+    let subListaValida = obtenerListaValidaNumeros(listaDeNumeros[contadorPosicion], posNoDigito);
+    if (posNoDigito &gt; 0 ) return suma + sumarLista(subListaValida);
+&nbsp;
+    let num = parseInt(listaDeNumeros[contadorPosicion]);
+    if(Number.isNaN(num)) return suma;
+    if(num &lt;= 1000) suma += num;       
+    contadorPosicion++;   
+  }
+  return suma;
+}
+&nbsp;
+function obtenerListaValidaNumeros(cadenaDeNumeros, posicionFinal){
+  let subcadenaDeNumerosValida = cadenaDeNumeros.slice(0,posicionFinal);
   let subListaValida = subcadenaDeNumerosValida.split();
   return subListaValida;
 }
@@ -218,19 +238,19 @@ function sumarLista(listaNumeros){
   return listaNumeros.reduce((a, b) =&gt;parseInt(a) + parseInt(b), 0);
 }
 &nbsp;
-function posicionCaracterDistintoDeDigito(cadenaDeNumerosDeNumeros){
-  return cadenaDeNumerosDeNumeros.search(/\D/);
+function posicionCaracterDistintoDeDigito(cadenaDeNumeros){
+  return cadenaDeNumeros.search(/\D/);
 }
 &nbsp;
-function tieneDelimitador(cadenaDeNumerosDeNumeros){
-  return cadenaDeNumerosDeNumeros.search("\n")&gt;0;
+function tieneDelimitador(cadenaDeNumeros){
+  return cadenaDeNumeros.search("\n")&gt;0;
 }
 &nbsp;
-function obtenercadenaDeNumerosValida(cadenaDeNumerosDeNumeros){
-  if(tieneDelimitador(cadenaDeNumerosDeNumeros)){
-    cadenaDeNumerosDeNumeros = cadenaDeNumerosDeNumeros.split("\n")[1];
+function obtenercadenaDeNumerosValida(cadenaDeNumeros){
+  if(tieneDelimitador(cadenaDeNumeros)){
+    cadenaDeNumeros = cadenaDeNumeros.split("\n")[1];
   }
-  return cadenaDeNumerosDeNumeros;
+  return cadenaDeNumeros;
 }
 &nbsp;
 function buscarDelimitadores(cadenaDeNumerosSeparadora){
@@ -245,11 +265,11 @@ function buscarDelimitadores(cadenaDeNumerosSeparadora){
   return separadores;
 }
 &nbsp;
-function obtenerSeparadores(cadenaDeNumerosDeNumeros){
+function obtenerSeparadores(cadenaDeNumeros){
   let separador = ",";
   let separadores =`,|-`;
-  if(tieneDelimitador(cadenaDeNumerosDeNumeros)){
-    separador = cadenaDeNumerosDeNumeros.split("\n")[0];
+  if(tieneDelimitador(cadenaDeNumeros)){
+    separador = cadenaDeNumeros.split("\n")[0];
     separador = separador.replace("//[","");
     separadores = buscarDelimitadores(separador);
   }  
@@ -264,23 +284,6 @@ function obtenerListaNumeros(cadenaDeNumeros){
   return listaNumeros;
 }
 &nbsp;
-function calcularSumacadenaDeNumeross(cadenaDeNumeros) {
-  let suma = 0;
-  let i =0;
-  let numeros = obtenerListaNumeros(cadenaDeNumeros);
-  while(i&lt;numeros.length){
-    let posNoDigito = posicionCaracterDistintoDeDigito(numeros[i]);
-    if( posNoDigito == 0) return suma;
-    let subListaValida = obtenerListaValidaNumeros(numeros[i], posNoDigito);
-    if (posNoDigito &gt; 0 ) return suma + sumarLista(subListaValida);
-&nbsp;
-    let num = parseInt(numeros[i]);
-    if(Number.isNaN(num)) return suma;
-    if(num &lt;= 1000) suma += num;       
-    i++;   
-  }
-  return suma;
-}
 &nbsp;
 export default calcularSumacadenaDeNumeross;</pre></td></tr></table></pre>
 
@@ -289,7 +292,7 @@ export default calcularSumacadenaDeNumeross;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Oct 07 2021 08:43:27 GMT-0200 (West Greenland Summer Time)
+                at Thu Oct 07 2021 08:52:36 GMT-0200 (West Greenland Summer Time)
             </div>
         </div>
         <script src="prettify.js"></script>

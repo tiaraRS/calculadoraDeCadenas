@@ -1,5 +1,23 @@
-function obtenerListaValidaNumeros(cadenaDeNumerosDeNumeros, posFin){
-  let subcadenaDeNumerosValida = cadenaDeNumerosDeNumeros.slice(0,posFin);
+function calcularSumacadenaDeNumeross(cadenaDeNumeros) {
+  let suma = 0;
+  let contadorPosicion =0;
+  let listaDeNumeros = obtenerListaNumeros(cadenaDeNumeros);
+  while(contadorPosicion<listaDeNumeros.length){
+    let posNoDigito = posicionCaracterDistintoDeDigito(listaDeNumeros[contadorPosicion]);
+    if( posNoDigito == 0) return suma;
+    let subListaValida = obtenerListaValidaNumeros(listaDeNumeros[contadorPosicion], posNoDigito);
+    if (posNoDigito > 0 ) return suma + sumarLista(subListaValida);
+
+    let num = parseInt(listaDeNumeros[contadorPosicion]);
+    if(Number.isNaN(num)) return suma;
+    if(num <= 1000) suma += num;       
+    contadorPosicion++;   
+  }
+  return suma;
+}
+
+function obtenerListaValidaNumeros(cadenaDeNumeros, posicionFinal){
+  let subcadenaDeNumerosValida = cadenaDeNumeros.slice(0,posicionFinal);
   let subListaValida = subcadenaDeNumerosValida.split();
   return subListaValida;
 }
@@ -9,19 +27,19 @@ function sumarLista(listaNumeros){
   return listaNumeros.reduce((a, b) =>parseInt(a) + parseInt(b), 0);
 }
 
-function posicionCaracterDistintoDeDigito(cadenaDeNumerosDeNumeros){
-  return cadenaDeNumerosDeNumeros.search(/\D/);
+function posicionCaracterDistintoDeDigito(cadenaDeNumeros){
+  return cadenaDeNumeros.search(/\D/);
 }
 
-function tieneDelimitador(cadenaDeNumerosDeNumeros){
-  return cadenaDeNumerosDeNumeros.search("\n")>0;
+function tieneDelimitador(cadenaDeNumeros){
+  return cadenaDeNumeros.search("\n")>0;
 }
 
-function obtenercadenaDeNumerosValida(cadenaDeNumerosDeNumeros){
-  if(tieneDelimitador(cadenaDeNumerosDeNumeros)){
-    cadenaDeNumerosDeNumeros = cadenaDeNumerosDeNumeros.split("\n")[1];
+function obtenercadenaDeNumerosValida(cadenaDeNumeros){
+  if(tieneDelimitador(cadenaDeNumeros)){
+    cadenaDeNumeros = cadenaDeNumeros.split("\n")[1];
   }
-  return cadenaDeNumerosDeNumeros;
+  return cadenaDeNumeros;
 }
 
 function buscarDelimitadores(cadenaDeNumerosSeparadora){
@@ -36,11 +54,11 @@ function buscarDelimitadores(cadenaDeNumerosSeparadora){
   return separadores;
 }
 
-function obtenerSeparadores(cadenaDeNumerosDeNumeros){
+function obtenerSeparadores(cadenaDeNumeros){
   let separador = ",";
   let separadores =`,|-`;
-  if(tieneDelimitador(cadenaDeNumerosDeNumeros)){
-    separador = cadenaDeNumerosDeNumeros.split("\n")[0];
+  if(tieneDelimitador(cadenaDeNumeros)){
+    separador = cadenaDeNumeros.split("\n")[0];
     separador = separador.replace("//[","");
     separadores = buscarDelimitadores(separador);
   }  
@@ -55,22 +73,5 @@ function obtenerListaNumeros(cadenaDeNumeros){
   return listaNumeros;
 }
 
-function calcularSumacadenaDeNumeross(cadenaDeNumeros) {
-  let suma = 0;
-  let i =0;
-  let numeros = obtenerListaNumeros(cadenaDeNumeros);
-  while(i<numeros.length){
-    let posNoDigito = posicionCaracterDistintoDeDigito(numeros[i]);
-    if( posNoDigito == 0) return suma;
-    let subListaValida = obtenerListaValidaNumeros(numeros[i], posNoDigito);
-    if (posNoDigito > 0 ) return suma + sumarLista(subListaValida);
-
-    let num = parseInt(numeros[i]);
-    if(Number.isNaN(num)) return suma;
-    if(num <= 1000) suma += num;       
-    i++;   
-  }
-  return suma;
-}
 
 export default calcularSumacadenaDeNumeross;
