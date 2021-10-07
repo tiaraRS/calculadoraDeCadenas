@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1633197834572" clover="3.2.0">
-  <project timestamp="1633197834572" name="All files">
+<coverage generated="1633603407200" clover="3.2.0">
+  <project timestamp="1633603407200" name="All files">
     <metrics statements="43" coveredstatements="43" conditionals="12" coveredconditionals="12" methods="11" coveredmethods="11" elements="66" coveredelements="66" complexity="0" loc="43" ncloc="43" packages="1" files="1" classes="1"/>
     <file name="CalcularSumaCadena.js" path="D:\UNIVERSIDAD\SEMESTRE 6\ING DE SW\PROYECTOS\TDD Calculadora de Cadenas\parcel-jest-base\src\CalcularSumaCadena.js">
       <metrics statements="43" coveredstatements="43" conditionals="12" coveredconditionals="12" methods="11" coveredmethods="11"/>

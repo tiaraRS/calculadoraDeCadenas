@@ -6,11 +6,11 @@ FN:8,(anonymous_2)
 FN:9,(anonymous_3)
 FN:12,posicionCaracterDistintoDeDigito
 FN:16,tieneDelimitador
-FN:20,obtenerCadenaValida
+FN:20,obtenercadenaDeNumerosValida
 FN:27,buscarDelimitadores
 FN:39,obtenerSeparadores
 FN:50,obtenerListaNumeros
-FN:58,calcularSumaCadenas
+FN:58,calcularSumacadenaDeNumeross
 FNF:11
 FNH:11
 FNDA:89,obtenerListaValidaNumeros
@@ -19,11 +19,11 @@ FNDA:5,(anonymous_2)
 FNDA:3,(anonymous_3)
 FNDA:92,posicionCaracterDistintoDeDigito
 FNDA:58,tieneDelimitador
-FNDA:29,obtenerCadenaValida
+FNDA:29,obtenercadenaDeNumerosValida
 FNDA:15,buscarDelimitadores
 FNDA:29,obtenerSeparadores
 FNDA:29,obtenerListaNumeros
-FNDA:29,calcularSumaCadenas
+FNDA:29,calcularSumacadenaDeNumeross
 DA:2,89
 DA:3,89
 DA:4,89
