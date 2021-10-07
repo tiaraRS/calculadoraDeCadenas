@@ -133,7 +133,8 @@
 <a name='L74'></a><a href='#L74'>74</a>
 <a name='L75'></a><a href='#L75'>75</a>
 <a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">29x</span>
 <span class="cline-any cline-yes">29x</span>
 <span class="cline-any cline-yes">29x</span>
@@ -149,6 +150,37 @@
 <span class="cline-any cline-yes">76x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -178,53 +210,54 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">23x</span>
-<span class="cline-any cline-yes">23x</span>
-<span class="cline-any cline-yes">23x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">29x</span>
-<span class="cline-any cline-yes">29x</span>
-<span class="cline-any cline-yes">29x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">29x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">29x</span>
-<span class="cline-any cline-yes">29x</span>
-<span class="cline-any cline-yes">29x</span>
-<span class="cline-any cline-yes">29x</span>
-<span class="cline-any cline-yes">29x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">function calcularSumacadenaDeNumeross(cadenaDeNumeros) {
-  let suma = 0;
+  let sumaDeNumeros = 0;
   let contadorPosicion =0;
   let listaDeNumeros = obtenerListaNumeros(cadenaDeNumeros);
   while(contadorPosicion&lt;listaDeNumeros.length){
-    let posNoDigito = posicionCaracterDistintoDeDigito(listaDeNumeros[contadorPosicion]);
-    if( posNoDigito == 0) return suma;
-    let subListaValida = obtenerListaValidaNumeros(listaDeNumeros[contadorPosicion], posNoDigito);
-    if (posNoDigito &gt; 0 ) return suma + sumarLista(subListaValida);
+    let posicionSimboloNoValido = posicionCaracterDistintoDeDigito(listaDeNumeros[contadorPosicion]);
+    if( posicionSimboloNoValido == 0) return sumaDeNumeros;
+    let subListaValida = obtenerListaValidaNumeros(listaDeNumeros[contadorPosicion], posicionSimboloNoValido);
+    if (posicionSimboloNoValido &gt; 0 ) return sumaDeNumeros + sumarLista(subListaValida);
 &nbsp;
-    let num = parseInt(listaDeNumeros[contadorPosicion]);
-    if(Number.isNaN(num)) return suma;
-    if(num &lt;= 1000) suma += num;       
+    let numero = parseInt(listaDeNumeros[contadorPosicion]);
+    if(Number.isNaN(numero)) return sumaDeNumeros;
+    if(numero &lt;= 1000) sumaDeNumeros += numero;       
     contadorPosicion++;   
   }
-  return suma;
+  return sumaDeNumeros;
+}
+&nbsp;
+function obtenerListaNumeros(cadenaDeNumeros){
+  let separadores = obtenerSeparadores(cadenaDeNumeros); 
+  let expresionSeparadora =  new RegExp(separadores);
+  cadenaDeNumeros = obtenercadenaDeNumerosValida(cadenaDeNumeros);
+  let listaNumeros = cadenaDeNumeros.split(expresionSeparadora);  
+  return listaNumeros;
+}
+&nbsp;
+function obtenerSeparadores(cadenaDeNumeros){
+  let separador = ",";
+  let separadores =`,|-`;
+  if(tieneDelimitador(cadenaDeNumeros)){
+    separador = cadenaDeNumeros.split("\n")[0];
+    separador = separador.replace("//[","");
+    separadores = buscarDelimitadores(separador);
+  }  
+  return separadores;
+}
+&nbsp;
+function buscarDelimitadores(cadenaDeNumerosSeparadora){
+  let matches= cadenaDeNumerosSeparadora.matchAll("]","")
+  let limiteInicial = 0;
+  let separadores = `,|-`;
+  for (const match of matches) {
+    let sep = cadenaDeNumerosSeparadora.slice(limiteInicial,match.index);
+    limiteInicial = match.index+2;
+    separadores = separadores += `|[${sep}]+`;
+  }
+  return separadores;
 }
 &nbsp;
 function obtenerListaValidaNumeros(cadenaDeNumeros, posicionFinal){
@@ -253,36 +286,6 @@ function obtenercadenaDeNumerosValida(cadenaDeNumeros){
   return cadenaDeNumeros;
 }
 &nbsp;
-function buscarDelimitadores(cadenaDeNumerosSeparadora){
-  let matches= cadenaDeNumerosSeparadora.matchAll("]","")
-  let limiteInicial = 0;
-  let separadores = `,|-`;
-  for (const match of matches) {
-    let sep = cadenaDeNumerosSeparadora.slice(limiteInicial,match.index);
-    limiteInicial = match.index+2;
-    separadores = separadores += `|[${sep}]+`;
-  }
-  return separadores;
-}
-&nbsp;
-function obtenerSeparadores(cadenaDeNumeros){
-  let separador = ",";
-  let separadores =`,|-`;
-  if(tieneDelimitador(cadenaDeNumeros)){
-    separador = cadenaDeNumeros.split("\n")[0];
-    separador = separador.replace("//[","");
-    separadores = buscarDelimitadores(separador);
-  }  
-  return separadores;
-}
-&nbsp;
-function obtenerListaNumeros(cadenaDeNumeros){
-  let separadores = obtenerSeparadores(cadenaDeNumeros); 
-  let expr =  new RegExp(separadores);
-  cadenaDeNumeros = cadenaDeNumeros = obtenercadenaDeNumerosValida(cadenaDeNumeros);
-  let listaNumeros = cadenaDeNumeros.split(expr);  
-  return listaNumeros;
-}
 &nbsp;
 &nbsp;
 export default calcularSumacadenaDeNumeross;</pre></td></tr></table></pre>
@@ -292,7 +295,7 @@ export default calcularSumacadenaDeNumeross;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Oct 07 2021 08:52:36 GMT-0200 (West Greenland Summer Time)
+                at Thu Oct 07 2021 09:02:57 GMT-0200 (West Greenland Summer Time)
             </div>
         </div>
         <script src="prettify.js"></script>
